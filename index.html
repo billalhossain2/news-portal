@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=Category-1.0" />
     <title>News Portal Api</title>
     <!-- google fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,11 +26,90 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body style="font-family: 'Roboto', sans-serif">
-    <h1>Let's go.........</h1>
-
-
-    
+    <header class="max-w-[90%] mx-auto">
+        <nav class="mt-5 border-b-[1px] border-b-gray-300 border-b-solid pb-2">
+            <div class="navbar flex lg:flex-row flex-col lg:gap-0 gap-5">
+                <div class="flex-1">
+                  <a class="text-xl"><span class="bg-[#5D5FEF] px-4 py-2 rounded-lg text-white">News</span> Portal</a>
+                </div>
+                <div class="flex-none gap-2">
+                      <div class="flex items-center gap-5">
+                        <p><a href="">News</a></p>
+                        <p><a href="">Blog</a></p>
+                        <p class="rounded-full"><img class="w-[50px] h-[50px] rounded-full" src="./images/profile.jpg" /></p>
+                      </div>
+                </div>
+              </div>
+        </nav>
+        <div class="categories mt-3">
+            <ul class="flex lg:flex-row flex-col lg:justify-between justify-center items-center">
+                <li>Category-1</li>
+                <li>Category-2</li>
+                <li>Category-3</li>
+                <li>Category-4</li>
+                <li>Category-5</li>
+                <li>Category-6</li>
+                <li>Category-7</li>
+                <li>Category-8</li>
+                <li>Category-9</li>
+            </ul>
+        </div>
+    </header>
     <!-- custom js  -->
+    <main class="max-w-[90%] mx-auto">
+        <h3 class="my-7 font-medium">4 items found for category Entertainment</h3>
+        <div class="flex lg:flex-row flex-col lg:justify-between gap-5">
+            <div class="flex gap-8 items-center">
+                <span>Sort By View</span>
+                <select name="sort-by-view" id="sort-by-view">
+                    <option selected disabled value="Default">Default</option>
+                    <option value="View">View</option>
+                </select>
+            </div>
+            <div class="lg:mb-0 mb-10">
+                <button class="btn bg-[#5D5FEF] hover:bg-[#5D5FEF] text-white">Today’s Pick</button>
+                <button class="btn border-2 border-solid border-[#5D5FEF] text-[#5D5FEF] hover:border-[#5D5FEF] hover:bg-[#fff]">Trending</button>
+            </div>
+        </div>
+
+        <!-- news cards container  -->
+        <section>
+            <div class="cards-container">
+                <div class="flex lg:flex-row flex-col items-center gap-8">
+                    <div class="lg:max-w-[200px] w-[100%] h-[300px]"><img class="w-[100%] h-[100%] rounded-lg" src="./images/profile.jpg" alt="News Image"></div>
+                    <div>
+                        <h1 class="font-bold text-2xl mb-3">The best fashion influencers to follow for sartorial inspiration</h1>
+                        <p class="text-justify">From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read on some of the best fashion blogs out there, and for even more inspiration, do head to our separate black fashion influencer round-up.
+                        Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday, Missoma Black Friday and Gucci Black Friday...</p>
+                        <div class="flex lg:flex-row flex-col gap-5 justify-between mt-5 items-center">
+                            <div class="flex items-center gap-3">
+                                <img class="w-[40px] h-[40px] rounded-full" src="./images/profile.jpg" alt="author image">
+                                <div>
+                                    <b>Jane Cooper</b>
+                                    <p>Jan 10, 2022 </p>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-eye"></i>
+                                <span>1.4M</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p><i class="fa-solid fa-arrow-right text-[#5D5FEF] text-2xl cursor-pointer"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="mt-5">
+        <p class="text-center text-[#949494]">Copyright 2021 News Portal</p>
+    </footer>
     <script src="js/news-portal.js"></script>
   </body>
 </html>
