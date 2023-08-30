@@ -66,11 +66,13 @@
 
         <!-- news cards container  -->
         <section>
+          <p id="error-container" class="text-red-500 font-bold"></p>
             <div id="category-news-container" class="cards-container">
-                
+              <!-- loading spinner  -->
+              <span id="loading-dots" class="loading loading-dots loading-lg hidden text-3xl"></span>
             </div>
         </section>
-        <div class="flex justify-center"><button id="show-all-btn" onclick="handleShowAllNews()" class="btn btn-primary">Show All</button></div>
+        <div class="flex justify-center"><button id="show-all-btn" onclick="handleShowAllNews()" class="hidden btn btn-primary">Show All</button></div>
     </main>
     <footer class="mt-5">
         <p class="text-center text-[#949494]">Copyright 2021 News Portal</p>
