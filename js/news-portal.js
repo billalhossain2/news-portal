@@ -1,3 +1,4 @@
+//API load functions 
 const loadCategories = async()=>{
     const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`);
     const data = await res.json();
@@ -19,23 +20,30 @@ const loadCategoryNews = async(categoryId) =>{
     displayAllNews(categoryNews)
 }
 
-
+//UI display functions
 const displayCategories = (categories)=>{
-    console.log(categories)
     const categoryUl = document.getElementById("category-list-container");
     categories.forEach(category => categoryUl.innerHTML += `<li onclick={loadCategoryNews('${category.category_id}')} class="cursor-pointer">${category.category_name}</li>`)
 }
 
-const displayAllNews = (allNews, todaysPick)=>{
-    console.log(allNews)
+const displayAllNews = (allNews, status)=>{
     let categoryNews = document.getElementById("category-news-container")
     let totalFoundElem = document.getElementById("total-found")
     totalFoundElem.innerText = `Total found news: ${allNews.length}`;
     categoryNews.innerHTML = "";
-    if(todaysPick === "trending"){
+    if(status === "trending"){
         allNews = allNews.filter(news => news.others_info.is_trending)
-    }else if(todaysPick === "todays_pick"){
+    }else if(status === "todays_pick"){
         allNews = allNews.filter(news => news.others_info.is_todays_pick)
+    }
+
+    const showAllBtn = document.getElementById("show-all-btn")
+    //show limited news
+    if(allNews.length > 5 && !status){
+        allNews = allNews.slice(0, 5)
+        showAllBtn.classList.remove('hidden')
+    }else{
+        showAllBtn.classList.add('hidden')
     }
     allNews.forEach(newsItem => {
         let {_id:id, image_url, title, details, author, total_view, rating} = newsItem;
@@ -76,21 +84,26 @@ const displayAllNews = (allNews, todaysPick)=>{
         `;
     })
 }
+
+
 //news details
 const handleNewsDetails = (newsId) =>{
     location.replace(`../pages/newsDetails.html?newsId=${newsId}`);
 }
 
+//handle show all news
+function handleShowAllNews(){
+    loadAllNews(true)
+}
+
+//filter function
 function getTodaysPick(){
     loadAllNews('todays_pick');
 }
 
-
-
 function getTrending(){
     loadAllNews("trending");
 }
-
 
 loadCategories()
 loadAllNews()
